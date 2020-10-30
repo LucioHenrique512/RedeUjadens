@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {navigationDarkTheme} from '../style/themes';
@@ -9,12 +9,14 @@ import WellcomeScreen from './wellcomescreen';
 import LoginScreen from './loginscreen';
 import RegisterScreen from './registerscreen';
 import HomeScreen from './homescreen';
+import {useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
 
 const PublicStack = () => (
   <Stack.Navigator
     screenOptions={{
+      gestureDirection: 'horizontal',
       headerStyle: {
         elevation: 0,
         height: 48,
@@ -57,9 +59,11 @@ const PrivateStack = () => (
 );
 
 const Routes = () => {
+  const {isAuthenticed} = useSelector((store: any) => store.authentication);
+  //console.log("Is authenticed:",isAuthenticed);
   return (
     <NavigationContainer theme={navigationDarkTheme}>
-      {false ? <PrivateStack /> : <PublicStack />}
+      {isAuthenticed ? <PrivateStack /> : <PublicStack />}
     </NavigationContainer>
   );
 };

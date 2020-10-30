@@ -1,6 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import {Button, TextInput} from '../../components';
 import {Image, TouchableOpacity} from 'react-native';
+import {useDispatch} from 'react-redux';
 
 import {
   Container,
@@ -12,8 +13,10 @@ import {
   RowButtons,
 } from './styles';
 import {useNavigation} from '@react-navigation/native';
+import * as authenticationActions from '../../actions/authentication';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
 
   return (
@@ -32,7 +35,7 @@ const Login = () => {
           text="Entrar"
           marginBottom
           fullWidth
-          onPress={() => console.log('Login')}
+          onPress={() => dispatch(authenticationActions.fakeAuth(true))}
         />
         <StyledText>Ou entre com</StyledText>
         <RowButtons>

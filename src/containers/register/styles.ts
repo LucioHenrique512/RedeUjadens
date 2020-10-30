@@ -31,7 +31,6 @@ export const FormContainer = styled.ScrollView`
   border-top-right-radius: 25px;
   padding: 25px;
   bottom: -12px;
-  
 `;
 
 export const RowButtons = styled.View`

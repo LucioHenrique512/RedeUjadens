@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {Button, TextInput} from '../../components';
 import {Image} from 'react-native';
 
@@ -34,7 +34,9 @@ const Register = () => {
           fullWidth
           onPress={() => console.log('Login')}
         />
-        <StyledText>Ou se registre com</StyledText>
+        <StyledText style={{textAlign: 'center'}}>
+          Ou se registre com
+        </StyledText>
         <RowButtons>
           <Button marginBottom margin={15} onPress={() => console.log('Login')}>
             <Image source={require('../../assets/google/google.png')} />
@@ -44,7 +46,9 @@ const Register = () => {
           </Button>
         </RowButtons>
         <TouchableOpacity onPress={() => navigation.navigate('login')}>
-          <StyledText>Já possui um usuário?</StyledText>
+          <StyledText style={{textAlign: 'center'}}>
+            Já possui um usuário?
+          </StyledText>
         </TouchableOpacity>
       </FormContainer>
     </Container>
